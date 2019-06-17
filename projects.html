@@ -4,11 +4,21 @@
     <meta charset ="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Nick kotte">
-    <meta name="description" content="Nick Kotte's test website">
+    <meta name="description" content="Nick Kotte's website">
     <meta name="keywords" content="Nick, Nicklas, Kotte">
     <title>Nick Kotte | Projects</title>
     <link rel="stylesheet" href = "./css/stylesheet.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+    <script type="text/javascript" src="./projects/visualization.js"></script>
+    <script type="text/javascript" src="./projects/Rain.js"></script>
 
+    <link rel="stylesheet" href = "./css/stylesheet.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
 
   </head>
   <body>
@@ -29,11 +39,9 @@
 
       </div>
     </header>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
-    <script type="text/javascript" src="./projects/visualization.js"></script>
-    <script type="text/javascript" src="./projects/Rain.js"></script>
+
+  
+
 
 
 
@@ -44,3 +52,25 @@
 
   </body>
 </html>
+
+<!--
+<script type="text/javascript">
+function loadSong(name)
+{
+  if(name == 'shipwreck')
+  {
+    loadScript('./projects/visualization.js');
+    loadScript('./projects/Rain.js');
+  }
+}
+function loadScript(script_url)
+{
+  var head= document.getElementsByTagName('head')[0];
+  var script= document.createElement('script');
+  script.type= 'text/javascript';
+  script.src= script_url;
+  head.appendChild(script);
+}
+
+</script>
+-->
