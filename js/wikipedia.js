@@ -14,10 +14,17 @@ $(document).ready(function(){
         }
     );
 
-    $("#wikipedia h1").on("click", function(){
-    $.getJSON("https://api.nasa.gov/planetary/apod?api_key=EVooq5ktpP7fFB9rSffhzdChbzCvB5TA6c2zEba8", function(json){
-        console.log(json);
 
+    var json;
+
+    $.getJSON("https://api.nasa.gov/planetary/apod?api_key=EVooq5ktpP7fFB9rSffhzdChbzCvB5TA6c2zEba8", function(temp){
+        json = temp;
+    });
+
+
+
+    $("#wikipedia h1").on("click", function(){
+        console.log(json);
         $(".showcase").toggle(800);
         if(json.media_type == "image"){
           $("#imgID").attr("src", json.url).delay(400).attr("class","center").slideToggle(1000);
@@ -47,15 +54,13 @@ $(document).ready(function(){
 
         setTimeout(scroll, 800);
 
-
-
     });
 
+
+
 });
 
 
-
-});
 
 
 

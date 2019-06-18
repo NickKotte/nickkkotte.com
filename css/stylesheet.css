@@ -106,7 +106,7 @@ header a:hover{
 
 .showcase img{
     padding:10px;
-    margin:0;
+    margin:10px;
     height: 500px;
 }
 
@@ -143,9 +143,16 @@ header a:hover{
 
 #imgID{
   border-radius: 70px;
+  padding: 20px;
+  border-style:hidden;
+}
+
+#vidID{
+  border-radius: 70px;
   padding-top: 20px;
   border-style:hidden;
 }
+
 
 /* boxes */
 #boxes{
@@ -195,7 +202,7 @@ footer{
 }
 
 /* Media Queries */
-  @media(max-width: 880px){
+  @media(max-width: 755px){
       header #branding,
       header nav,
       header nav li,
@@ -212,18 +219,15 @@ footer{
         padding-bottom: 20px;
       }
 
-      #showcase{
+      .showcase{
         background-size:cover;
       }
 
-      #showcase h1{
-        margin-top:40px;
+      .showcase img{
+        height:auto;
+        width:70%;
       }
 
-      #wikipedia button{
-        display:block;
-        width:100%;
-      }
 
       #wikipedia form input[type="email"]{
         width:100%;
