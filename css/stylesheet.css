@@ -10,7 +10,6 @@ body{
   margin:0;
   background-color:#f4f4f4;
 }
-
 /* Global */
 .container{
   width:80%;
@@ -110,6 +109,26 @@ header a:hover{
     height: 500px;
 }
 
+#navTool{
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  cursor:pointer;
+  width:100px;
+
+  background:    #35424a;
+  background:    linear-gradient(#35424a, #377bab);
+  border:        1px solid #000000;
+  border-radius: 5px;
+  box-shadow:    1px 1px #444444;
+  padding:       8px 14px;
+  color:         #d05b3a;
+  font:          normal bold 19px/1 "Open Sans", sans-serif;
+  text-align:    center;
+  text-shadow:   1px 1px #000000;
+}
+
 
 #wikipedia{
   padding: 10px;
@@ -127,6 +146,8 @@ header a:hover{
   padding-right: 20px;
   padding-left: 20px;
   margin-bottom:20px;
+  margin-top:none;
+  padding-top:none;
 }
 
 #wikipedia h1{
@@ -139,17 +160,23 @@ header a:hover{
   border-radius: 20px;
   border-top-width: 5px;
   border-color: #e8491d;
+  margin-bottom:none;
+  padding-bottom:none;
 }
 
 #imgID{
-  border-radius: 70px;
-  padding: 20px;
+  padding-top: 20px;
+  width:90%;
+
+  margin-bottom:10px;
   border-style:hidden;
 }
 
 #vidID{
-  border-radius: 70px;
   padding-top: 20px;
+  width:90%;
+  height:auto;
+  margin-bottom:10px;
   border-style:hidden;
 }
 
@@ -207,7 +234,6 @@ footer{
       header nav,
       header nav li,
       #wikipedia h1,
-      #wikipedia form,
       aside#side,
       article#main{
         float: none;
@@ -223,15 +249,13 @@ footer{
         background-size:cover;
       }
 
+      #imgID,#vidID{
+        height: 300px;
+      }
+
       .showcase img{
         height:auto;
         width:70%;
-      }
-
-
-      #wikipedia form input[type="email"]{
-        width:100%;
-        margin-bottom:5px;
       }
 
       #boxes .box{
