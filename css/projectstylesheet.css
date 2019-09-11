@@ -1,0 +1,81 @@
+/*projects*/
+#projectsPanel{
+    text-align:center;
+    margin:20px;
+    border-width:10px;
+    border-style:groove;
+}
+
+.projectBoxes a{
+    text-decoration: none;
+    display:inline-grid;
+    width: 300px;
+    padding: 10px;
+    height: 300px;
+    margin:20px;
+    border-style:outset;
+    border-width:8px;
+    border-color:#e8491d;
+    font-size:15px;
+    color:white;
+    background:#35424a;
+}
+
+.projectBoxes h3{
+    text-transform:uppercase;
+
+}
+.projectBoxes a:hover{
+    border-style:inset;
+    cursor:pointer;
+}
+
+#website{
+    background-image:url("../images/coyote.png");
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+#website:hover{
+    color:rgb(255, 79, 35);
+}
+
+#webMV{
+    background-image:url("");
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+#webMV:hover{
+    color:rgb(20, 255, 35);
+}
+
+#LEDblog{
+    background-image:url("");
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+#LEDblog:hover{
+    color:rgb(255, 79, 35);
+}
+
+#LEDinteractive{
+    background-image:url("");
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+#LEDinteractive:hover{
+    color:rgb(255, 79, 35);
+}
+
+.projectBoxes:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dropdown{
+    font-size:18px;
+}

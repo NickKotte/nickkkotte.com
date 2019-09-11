@@ -6,36 +6,48 @@
     <meta name="author" content="Nick kotte">
     <meta name="description" content="Nick Kotte's test website">
     <meta name="keywords" content="Nick, Nicklas, Kotte">
-    <title>Nick Kotte | Welcome</title>
-    <link rel="stylesheet" href = "../css/stylesheet.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <title>Nick Kotte | WebMV</title>
+    <link rel="stylesheet" href = "../css/globalstylesheet.css">
+    <link rel="stylesheet" href = "../css/projectstylesheet.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
     <link rel="manifest" href="./images/site.webmanifest">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="./js/wikipedia.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+    <script type="text/javascript" src="../projects/visualization.js"></script>
+    <script type="text/javascript" src="../projects/Rain.js"></script>
   </head>
   <body>
+
     <header>
       <div class="container"> <!-- -->
-
         <div id="branding"><!-- -->
           <h1><span class="highlight">Nick Kotte</span> Creations</h1> <!-- -->
         </div>
-
         <nav> <!-- -->
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class = "current"><a href="projects.html">Projects</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li class = "current"><a href="../projects.html">Projects</a></li>
           </ul>
         </nav>
-
       </div>
     </header>
 
-    <section>
-        <h1 style="text-align:center;">==Webpage in development==</h1>
+    <section style="text-align:center;">
+        <h1>==Webpage in development==</h1>
+        <select id=songselector class="dropdown">
+            <option value="../projects/Music/Brazil.mp3">Declan McKenna - Brazil</option>
+            <option value="../projects/Music/DayNight.mp3">Kid Cudi - Day 'N' Nite</option>
+            <option value="../projects/Music/Floop.mp3">Arne Kotte - Floop</option>
+            <option value="../projects/Music/Happiness.mp3">Kid Cudi - Pursuit Of Happiness</option>
+            <option value="../projects/Music/SanLuis.mp3">Gregory Alan Isakov - San Luis</option>
+            <option value="../projects/Music/Shipwreck.mp3">Ship Wrek - Ark</option>
+        </select>
+        <p id=percentloaded></p>
     </section>
 
     <footer>
