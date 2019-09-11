@@ -4,7 +4,7 @@
 var clicked = false;
 var find_clicked = false;
 var _json = [];
-var page = 0;
+
 $(document).ready(function(){
   loadJson(2);
 
@@ -31,25 +31,31 @@ $(document).ready(function(){
 
       for(var i = 0; i<numTimes;i++)
       {
-        $.getJSON("https://api.nasa.gov/planetary/apod?date="+getDate()+"&api_key=EVooq5ktpP7fFB9rSffhzdChbzCvB5TA6c2zEba8", function(temp){
-            _json.push(temp);
-            console.log(temp);
-          }).fail(function(){
-            console.log("Failed request...");
-          });
+          var success = true;
+          do{
+            $.getJSON("https://api.nasa.gov/planetary/apod?date="+getDate()+"&api_key=EVooq5ktpP7fFB9rSffhzdChbzCvB5TA6c2zEba8", function(temp){
+                _json.push(temp);
+                console.log(temp);
+                success = true;
+              }).fail(function(){
+                console.log("Failed request...");
+                success = false;
+              });
+          }while(success==false);
       }
     }
 
+    //loads new json
     $("#navTool").on("click", function(){
       loadJson(1);
       _json.shift();
-      while(_json[page] == undefined){
-        _json.shift();
+      if(_json[1] == undefined){
         loadJson(1);
-
       }
-      changeJson(_json[page]);
+
+      changeJson(_json[0]);
     });
+
 
     $("#navTool").hover(
         function(){
@@ -60,9 +66,10 @@ $(document).ready(function(){
         }
     );
 
+    //toggles display on click
     $("#wikipedia h1").on("click", function(){
-      changeJson(_json[page]);
-      toggleDisplay(_json[page].media_type);
+      changeJson(_json[0]);
+      toggleDisplay(_json[0].media_type);
 
     });
 
@@ -77,7 +84,7 @@ $(document).ready(function(){
         $("#vidID").css("display", "none");
       }
       else{
-        $("#vidID").delay(400).attr("class","center").slideToggle(1000);
+        $("#vidID").attr("class","center").slideToggle(1000);
         $("#imgID").css("display", "none");
       }
 

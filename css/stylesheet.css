@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html{
     background:url("../images/space.jpg") cover;
 }
@@ -54,7 +58,7 @@ header{
   padding-top:30px;
   min-height: 70px;
   border-bottom: #e8491d 3px solid;
-  padding-bottom:0;
+  padding-bottom:30px;
 }
 
 /* all the links inside the haeders */
@@ -228,6 +232,54 @@ footer{
   text-align: center;
 }
 
+
+/*projects*/
+#projectsPanel{
+    text-align:center;
+    margin:20px;
+    border-width:10px;
+    border-style:groove;
+}
+
+.projectBoxes a{
+    text-decoration: none;
+    display:inline-grid;
+    width: 300px;
+    padding: 10px;
+    height: 300px;
+    margin:20px;
+    border-style:outset;
+    border-width:8px;
+    border-color:#e8491d;
+    font-size:15px;
+    color:white;
+    background:#35424a;
+}
+
+.projectBoxes h3{
+    text-transform:uppercase;
+
+}
+.projectBoxes a:hover{
+    border-style:inset;
+    cursor:pointer;
+    color:rgb(272, 79, 35);
+
+}
+
+#website{
+    background-image:url("../images/coyote.png");
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+
+.projectBoxes:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
 /* Media Queries */
   @media(max-width: 755px){
       header #branding,
@@ -263,4 +315,5 @@ footer{
         text-align:center;
         width:100%;
       }
+
   }
