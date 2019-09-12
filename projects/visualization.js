@@ -3,9 +3,11 @@ var song;
 var song_choice;
 var loading = true;
 var angle = 0;
+//angledirection false = backwards, true = forwards
+var angleDirection = false;
+var globalpercent=0;
 
 var fft;
-var button;
 var spectrum = [];
 var amp;
 var loc = 0;
@@ -18,10 +20,13 @@ var center = {
   y:0
 };
 
+
+
+
+
 function preload()
 {
   song_choice = document.getElementById('songselector').value;
-  song = loadSound("../projects/Music/Shipwreck.mp3", loaded);
 }
 
 function setup()
@@ -31,9 +36,10 @@ function setup()
   fft = new p5.FFT(0.9, 512);
   // colorMode(HSB);
   angleMode(DEGREES);
+    rectMode(CENTER);
   amp = new p5.Amplitude();
   noFill();
-  for(let i = 0; i < 300; i++)
+  for(let i = 0; i < 150; i++)
     drops[i] = new Rain();
   previous = 0;
   center.x = windowWidth*0.5;
@@ -44,22 +50,61 @@ function draw()
 {
   if(song_choice!==document.getElementById('songselector').value)
   {
+      globalpercent=0;
+      if(loading==false)
+      {
+        document.getElementById('pauseplay').innerHTML="Play";
+        song.pause();
+      }
       document.getElementById('percentloaded').innerHTML='&#9737';
       song_choice=document.getElementById('songselector').value;
-      setTimeout(function(){
-          song = loadSound(song_choice,loaded,errorLoading,progress);
-      },10000);
+      song = loadSound(song_choice,loaded,errorLoading,progress);
   }
 
   if(loading)
   {
-      background(40);
+      background(0);
       translate(width/2, height/2);
+      push();
       rotate(angle);
-      strokeWeight(6);
-      stroke(255);
-      line(0,0,width/3,0);
-      angle+=2;
+      if(angle>=120||angle<=0){
+          angleDirection=!angleDirection;
+      }
+      if(angleDirection){
+          angle+=0.5;
+      }else{
+          angle-=1;
+      }
+
+      var h = map(globalpercent,0,100,0,height/3);
+      for(i = 0;i < 360; i++)
+      {
+        let index = 0;
+        if(i<180)
+        {
+          index = i;
+        }
+        else if(i>180 && i < 360)
+        {
+          index = i-180;
+        }
+
+        stroke(255);
+        strokeWeight(i%angle);
+
+        r=100;
+        let x = r * cos(i);
+        let y = r * sin(i);
+
+        point(x,y);
+      }
+      pop();
+
+      if(globalpercent!=0){
+          stroke(20, 255, 35);
+          text(globalpercent.toFixed(0)+'%',0,0);
+      }
+
   }else{
 
       textAlign(CENTER);
@@ -69,7 +114,18 @@ function draw()
       } else {
         text('audio is enabled', width/2, height/2);
       }
-      button.mousePressed(toggleSong);
+      document.getElementById("pauseplay").onclick = function(){
+          if(song.isPlaying())
+          {
+            document.getElementById('pauseplay').innerHTML="Play";
+            song.pause();
+          }
+          else
+          {
+            document.getElementById('pauseplay').innerHTML="Pause";
+            song.play();
+          }
+      };
 
       var level = amp.getLevel();
       level = map(level, 0,1, 0,200);
@@ -86,7 +142,7 @@ function draw()
         mWidth = temp;
         previous = mWidth;
       }
-      var j = color(map(spectrum[140]*0.5,0,256,10,256));
+      var j = color(map(spectrum[140]*0.2,0,256,10,256));
       background(j);
 
 
@@ -142,7 +198,6 @@ function draw()
         if (r <= 50)
             r =50;
 
-
         let x = r * cos(i);
         let y = r * sin(i);
 
@@ -155,36 +210,30 @@ function draw()
       ellipse(0,0, 100);
     }
 }
+function touchStarted() {
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+  }
+}
 
 function loaded()
 {
     loading=false;
-  button = createButton("Play");
+    $("#pauseplay").slideDown();
+    document.getElementById('pauseplay').style.display='inline-block';
 }
 function errorLoading(err)
 {
+    loading=true;
     document.getElementById('percentloaded').innerHTML=err;
 }
 function progress(percent)
 {
-    console.log('im in');
+    loading=true;
     if(percent*100==99)
         percent=1;
-    document.getElementById('percentloaded').innerHTML=percent*100+'%';
-}
-
-function toggleSong()
-{
-  if(song.isPlaying())
-  {
-    button.html("Play");
-    song.pause();
-  }
-  else
-  {
-    button.html("Pause");
-    song.play();
-  }
+    globalpercent=percent*100;
+    document.getElementById('percentloaded').innerHTML=(percent*100).toFixed(0)+'% loaded';
 }
 
 function mouseClicked()

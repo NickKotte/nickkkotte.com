@@ -153,6 +153,11 @@ footer{
       header{
         padding-bottom: 20px;
       }
+      header li{
+        float:left;
+        display:inline;
+        padding: 0 10px 0 10px;
+      }
 
       .showcase{
         background-size:cover;
