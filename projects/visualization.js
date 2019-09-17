@@ -255,7 +255,6 @@ function progress(percent)
 
 function mouseClicked()
 {
-  console.log('X:' + mouseX+ ' Y:' + mouseY)
   //var _time = map(mouseX, 0, width, 0, song.duration());
   //song.jump(_time);
 }
