@@ -1,0 +1,75 @@
+.settings{
+    border-style: solid;
+    border-color:rgb(255, 79, 35);
+    border-radius:4px;
+    background-color:#35424a;
+    padding:10px;
+    margin:10px;
+    color:white;
+}
+#item{
+    margin:none;
+    display:inline-block;
+}
+input{
+    display:inline-block;
+    margin:none;
+}
+
+#balls{
+    width:60px;
+    font-size: 15px;
+    text-align: right;
+    background-color:#85424a;
+    border-radius: 12px;
+    border:none;
+    color:white;
+}
+
+#submit{
+    background-color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    width:90px;
+    display:inline-block;
+}
+#submit:hover{
+    background-color:gray;
+    cursor:pointer;
+}
+
+#borderState{
+    background-color:green;
+    border-style: outset;
+    border-radius:5px;
+    border-color:black;
+    border-width:1px;
+    text-align: center;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+#borderState:hover{
+    background-color:gray;
+    border-style: inset;
+    cursor:pointer;
+
+}
+
+#pauseplay{
+    border-radius:10px;
+    border-style:solid;
+    border-color:grey;
+    border-width:1px;
+    text-align: center;
+    width:80px;
+    height:25px;
+    display:none;
+    margin:5px;
+}
+#pauseplay:hover{
+    cursor:pointer;
+    background-color:grey;
+}
+
+#canvas{}

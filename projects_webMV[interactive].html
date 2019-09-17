@@ -9,6 +9,7 @@
     <title>Nick Kotte | WebMV</title>
     <link rel="stylesheet" href = "./css/globalstylesheet.css">
     <link rel="stylesheet" href = "./css/projectstylesheet.css">
+    <link rel="stylesheet" href = "./css/visualizer.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -40,10 +41,41 @@
     <section class=container style="text-align:center;">
         <h1>Online Music Visualizer</h1>
         <p>==Custom settings in development==</p>
+
+
         <div class="settings">
-            <p id=item>Number of falling particles:</p> <input type="number" max=3000 min=0 id=entry placeholder="#150">
-            <br>
+            <div class="title">
+                <h3>Particles:</h3>
+            </div>
+            <div class="item">
+                <input type="number" id="balls" value="150">
+                <span id='description'>Particles</span>
+            </div>
+            <div class="item">
+                <span id='description'>Size:</span>
+                <input type="range" id=dropSize min=2 max=30 value=5>
+                <span id=drop_sizeRange>5px</span>
+            </div>
+
+            <div class="title">
+                <h3>Draw:</h3>
+            </div>
+            <div class="item">
+                <span id='description'>Borders: </span>
+                <span type="button" id=borderState>on</span>
+            </div>
+            <div class="item">
+                <span id='description'>Borders size: </span>
+                <input type="range" id=borderSize min=1 max=20 value=5>
+                <span id=border_sizeRange>5px</span>
+            </div>
+            <div class="item">
+
+            </div>
+            <span style='color:black' id=submit>submit</span>
         </div>
+
+
         <select id=songselector class="dropdown" required>
             <option disabled selected>Choose a song</option>
             <option value="./projects/Music/DayNight.mp3">Kid Cudi - Day 'N' Nite</option>
@@ -55,5 +87,11 @@
         <div id=pauseplay>play</div>
         <p id=percentloaded></p>
     </section>
+
+    <span id=canvas></span>
+
+    <footer>
+      <p>Nick Kotte Creations, Copyright &copy; 2019</p>
+    </footer>
   </body>
 </html>

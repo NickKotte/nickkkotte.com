@@ -1,12 +1,11 @@
 class Rain {
-    constructor()
+    constructor(radius)
     {
       this.x = random(0,windowWidth);
       this.y = 0;
-      this.add = 0;
       this.speedx= random(5,10);
       this.speedy= random(5, windowWidth)
-      this.radius = map(this.speedx, 5, 15, 4,6);
+      this.radius = parseInt(radius);
       this.center = {
         x:windowWidth*0.5,
         y:windowHeight*0.5
@@ -18,37 +17,33 @@ class Rain {
     {
 
       //Move X
-      if(this.x > windowWidth || this.x < -20)
+      if(this.x > windowHeight)
       {
-        this.speedy= random(5, windowWidth);
         this.x = 0;
       }
       this.x += this.speedx;
 
       //Move Y
-      if(this.y > windowHeight|| this.y < -20)
-      {
-        this.y = 0;
-      }
+      // if(this.y > windowHeight || this.y < -20)
+      // {
+      //   this.y = 0;
+      // }
       this.y = 5*sin(this.x) + this.speedy;
 
       amp = map(amp, 0,200, 0,255);
       strokeWeight(0);
       stroke(250);
-      fill(255);
 
-      if(this.x < center.y)
-      {
-          fill(amp,0,map(this.x,0,center.y, 0,150));
-      }
-      else {
-          fill(amp,0,map(this.x,center.y,windowHeight, 150,0));
-      }
+      // if(this.x < center.y)
+      // {
+      //     fill(amp,0,map(this.x,0,center.y, 0,250));
+      // }
+      // else {
+      //     fill(amp,0,map(this.x,center.y,windowHeight, 250,0));
+      // }
+      
+      fill(amp,0,120);
 
-
-      this.add = 0;
-
-      //var d = sqrt(pow((this.x-this.center.y),2)+pow((this.y-this.center.x),2));
 
       if(repelingForce > 100)
       {

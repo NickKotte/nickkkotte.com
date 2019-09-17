@@ -50,39 +50,6 @@
     color:rgb(20, 255, 35);
 }
 
-.settings{
-    border-style: solid;
-    border-color:rgb(255, 79, 35);
-    border-radius:4px;
-    background-color:#35424a;
-    padding:10px;
-    margin:10px;
-}
-#item{
-    float:left;
-    display:grid;
-}
-#entry{
-    width:50px;;
-    display:grid;
-}
-
-#pauseplay{
-    border-radius:10px;
-    border-style:solid;
-    border-color:grey;
-    border-width:1px;
-    text-align: center;
-    width:80px;
-    height:25px;
-    display:none;
-    margin:5px;
-}
-#pauseplay:hover{
-    cursor:pointer;
-    background-color:grey;
-}
-
 #LEDblog{
     background-image:url("");
     background-position:center;
