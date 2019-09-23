@@ -259,6 +259,49 @@ function mouseClicked()
   //song.jump(_time);
 }
 
+function toggleSong(){
+    if(song.isPlaying()){
+        document.getElementById('playbutton').innerHTML = '&#9654;';
+        song.pause();
+    }
+    else{
+        document.getElementById('playbutton').innerHTML = '&#10074;&#10074;';
+        song.play();
+    }
+}
+
+function keyPressed() {
+  if (keyCode == 32)
+      if(loading==false)
+          if(song.isPlaying())
+            song.pause();
+          else
+            song.play();
+
+  if (keyCode == 27){
+      resizeCanvas(windowWidth,windowHeight);
+  }
+
+  if (keyCode == 13){
+      if(!fullscreen())
+        fullscreen(true);
+      focusCanvas(true);
+  }
+}
+
+function focusCanvas(scrollTo){
+    var cvs = document.getElementById("canvas");
+    setTimeout(function(){
+        if(scrollTo)//if window should scroll to canvas
+        cvs.scrollIntoView(true);
+        window.scrollBy(0, 1);
+
+        resizeCanvas(windowWidth, windowHeight);
+    }, 100);
+}
+
+
+
 
 //jquery
 
@@ -303,4 +346,27 @@ $(document).ready(function(){
         }
     });
 
+    $('#fullscreen').on('click',function(){
+        let fs = fullscreen();
+        fullscreen(!fs);
+        if(fs)//if in Fullscreen
+        {
+
+            document.getElementById('fullscreen').innerHTML="Fullscreen";
+            focusCanvas(false);
+        }
+        else{
+            focusCanvas(true);
+            document.getElementById('fullscreen').innerHTML="Exit";
+        }
+    });
+
+    $('#playbutton').on('click',function(){
+        toggleSong();
+    });
+
 });
+
+window.onkeydown = function(e) {
+  return !(e.keyCode == 32);
+};
