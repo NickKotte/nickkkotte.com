@@ -42,6 +42,8 @@ function setup()
 
   center.x = windowWidth*0.5;
   center.y = windowHeight*0.5;
+
+  frameRate(100);
 }
 
 function draw()
