@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html{
-    background:url("../images/space.jpg") cover;
-}
-
 body{
   font-family: sans-serif,Arial, Helvetica;
   font-size: 15px;
@@ -13,6 +9,10 @@ body{
   padding:0;
   margin:0;
   background-color:#f4f4f4;
+  margin-top:30px;
+}
+#body{
+    margin-bottom:55px;
 }
 /* Global */
 .container{
@@ -52,49 +52,54 @@ ul {
   border: #e8491d 3px solid;
 }
 /* Header */
-header{
+#header{
+  height:auto;
   background:#35424a;
   color: #ffffff;
-  padding-top:30px;
+  padding-top:20px;
   min-height: 70px;
   border-bottom: #e8491d 3px solid;
-  padding-bottom:30px;
+  padding-bottom:20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:99;
 }
 
 /* all the links inside the haeders */
-header a{
+#header a{
   color: white;
   text-decoration: none;
   text-transform:uppercase;
-  font-size: 16x;
+  font-size: 16px;
 }
 
-header li{
+#header li{
   float:left;
   display:inline;
   padding: 0 20px 0 20px;
 }
 
-header #branding{
+#header #branding{
   float:left;
 }
 
-header #branding h1{
+#header #branding h1{
   margin:0;
 }
 
-header nav{
+#header nav{
   float:right;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-header .highlight, header .current a{
+#header .highlight, #header .current a{
   color:#e8491d;
   font-weight:bold;
 }
 
-header a:hover{
+#header a:hover{
   color:#white;
   font-weight: bold;
 }
@@ -102,9 +107,12 @@ header a:hover{
 /* showcase */
 .showcase{
   background:url("../images/space.jpg");
-  background-size:cover;
+  background-size:contain;
   text-align: center;
   color: black;
+  position:fixed;
+  width:100%;
+  height:100%;
 }
 
 .showcase img{
@@ -129,19 +137,24 @@ article#main{
   width:65%;
 }
 
-footer{
-  padding: 20px;
-  margin-top: 20px;
-  color: white;
-  background-color: #e8491d;
-  text-align: center;
+#footer{
+    padding: 4px;
+    font-size:12px;
+    color: white;
+    background-color: #e8491d;
+    text-align: center;
+    width:100%;
+    /* stickness
+    position:fixed;
+    bottom:0;
+    width:100%; */
 }
 
 /* Media Queries */
   @media(max-width: 755px){
-      header #branding,
-      header nav,
-      header nav li,
+      #header #branding,
+      #header nav,
+      #header nav li,
       #wikipedia h1,
       aside#side,
       article#main{
@@ -150,10 +163,10 @@ footer{
         width:100%;
       }
 
-      header{
+      #header{
         padding-bottom: 20px;
       }
-      header li{
+      #header li{
         float:left;
         display:inline;
         padding: 0 10px 0 10px;

@@ -14,32 +14,68 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="manifest" href="./images/site.webmanifest">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    </script>
+    <script src="./js/global.js"></script>
   </head>
   <body>
-    <header>
+    <div id="header">
       <div class="container"> <!-- -->
-
         <div id="branding"><!-- -->
           <h1><span class="highlight">Nick Kotte</span> Creations</h1> <!-- -->
         </div>
-
         <nav> <!-- -->
           <ul>
-            <li class = "current"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li class="current"><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
           </ul>
         </nav>
-
       </div>
-    </header>
+    </div>
 
-
-    <section class="showcase">
+    <section id=logo class="showcase">
         <img src="./images/coyote.png" alt="rough logo design" title="Coyote Industries">
     </section>
 
+    <div id="body">
+        <section id="main">
+          <div class="container">
+            <article id="main">
+              <div class="themed">
+                <h1>What is this place?</h1>
+                <p>Hello! My name is Nick Kotte. I developed this website as a
+                means of presenting my personal projects in an easy and accessible way.
+                The main goal is to make each one as interactable as possible with the only
+                limitations being the capabilities of the browser and the device in use.
+                Along with the projects, I will have written informational
+                blogs in order to explain the purpose it serves and how it was made.
+                </p>
+                <h1>This is me</h1>
+                <div id="pics">
+                    <img class=slideshow src="./images/me/1.PNG">
+                    <img class=slideshow src="./images/me/2.PNG">
+                    <img class=slideshow src="./images/me/3.PNG">
+                </div>
+                <img id=lastpic src="./images/me/4.PNG">
+              </div>
+            </article>
+
+            <aside id="side">
+              <div class="themed">
+                <h1>Other Information</h1>
+                <ul>
+                  <li><a href=""></a></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </aside>
+
+          </div>
+        </section>
+
+        <div id=footer>
+          <p>Nick Kotte Creations, Copyright &copy; 2019</p>
+        </div>
+    </div>
 
 
 <!--
@@ -62,10 +98,6 @@
       </div>
     </section>
 -->
-
-    <footer>
-      <p>Nick Kotte Creations, Copyright &copy; 2019</p>
-    </footer>
 
   </body>
 </html>

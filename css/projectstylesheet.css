@@ -41,12 +41,22 @@
 }
 
 #webMV{
-    background-image:url("");
+    background-image:url("../images/mvSnapshot.png");
     background-position:center;
-    background-size:100%;
+    background-size:cover;
     background-repeat:no-repeat;
 }
 #webMV:hover{
+    color:rgb(20, 255, 35);
+}
+
+#nasa{
+    background-image:url("../images/nasa.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+#nasa:hover{
     color:rgb(20, 255, 35);
 }
 

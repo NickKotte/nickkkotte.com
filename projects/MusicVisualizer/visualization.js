@@ -288,6 +288,7 @@ function keyPressed() {
       if(!fullscreen())
         fullscreen(true);
       focusCanvas(true);
+
   }
 }
 
@@ -353,11 +354,14 @@ $(document).ready(function(){
         fullscreen(!fs);
         if(fs)//if in Fullscreen
         {
-
+            $('#header').css("display", "block");
+            $('#footer').css("display", "block");
             document.getElementById('fullscreen').innerHTML="Fullscreen";
             focusCanvas(false);
         }
         else{
+            $('#header').css("display", "none");
+            $('#footer').css("display", "none");
             focusCanvas(true);
             document.getElementById('fullscreen').innerHTML="Exit";
         }

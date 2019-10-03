@@ -21,3 +21,29 @@
 #boxes .box img{
   height: 100px;
 }
+
+.slideshow{
+    width:32%;
+    height:auto;
+}
+
+#pics{
+    display:table;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#lastpic{
+    display:table;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+/*
+#current{
+    display:inline;
+}
+*/
