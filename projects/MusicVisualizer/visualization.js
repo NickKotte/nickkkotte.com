@@ -15,6 +15,7 @@ var center = { //
   x:0,
   y:0
 };
+var radius = 0;
 
 //public varaibles for settings
 var numDrops = 150;
@@ -29,6 +30,7 @@ function setup()
   console.log(getAudioContext());
   var canvas = createCanvas(windowWidth,windowHeight);
   canvas.parent('canvas');
+  numDrops = document.getElementById("balls").value/2;
 
   song_choice = document.getElementById('songselector').value;
   fft = new p5.FFT(0.9, 512);
@@ -146,19 +148,19 @@ function draw()
         previous = mWidth;
       }
 
-      var j = color(map(spectrum[140]*0.2,0,256,10,256));
+      var j = color(spectrum[140]*0.4);
       background(j);
 
 
+      var col = map(spectrum[140], 0,200, 0,255);
       for(let i = 0; i < drops.length; i++)
       {
-        drops[i].show(spectrum[140],mWidth*0.7);
+        drops[i].show(mWidth*0.7, col);
       }
 
       if(borderState){
           push();
           rectMode(CORNER);
-          fill(0,j,0);
           rect(0,0,windowWidth,borderSize);
           rect(0,windowHeight,windowWidth,-borderSize);
           rect(0,0,borderSize,windowHeight);
@@ -175,8 +177,11 @@ function draw()
       ellipse(0,0,spectrum[140]*2, mWidth);
 
 
-
-      for(i = 0;i < 360; i++)
+      strokeWeight(1);
+      fill('rgba(0,0,0,0.4)');
+      beginShape();
+      var lineArr = new Array();
+      for(let i = 0;i < 360; i++)
       {
         let index = 0;
         if(i<180)
@@ -194,17 +199,19 @@ function draw()
         }
 
         //stroke(spectrum[140]*1.25,220,220);
-        stroke(0);
+        stroke(255);
 
-        varradius= 0;
+        radius= 0;
         amplitude = spectrum[index] + windowWidth*0.01;
+
         if(index < 90){
-           radius= (map(amplitude, 0,256, 0, 2)*map(spectrum[0],0, 256, -40, 130));
-            strokeWeight(4);
+            radius= ((amplitude/125)*((spectrum[0]-40)/1.66));
+           //radius= (map(amplitude, 0,256, 0, 2)*map(spectrum[0],0, 256, -40, 130));
+            //strokeWeight(5);
         }
         else {
-           radius= map(amplitude, 0,256, 50, 200);
-            strokeWeight(3);
+           radius= map(amplitude, 0,256, 45, 200);
+            //strokeWeight(4);
         }
         if (radius <= 50)
            radius=50;
@@ -212,21 +219,34 @@ function draw()
         let x =radius* cos(i);
         let y =radius* sin(i);
 
-        line(radius*0.25*cos(i*8),radius*0.25*sin(i*12),x,y);
+        lineArr.push(x);
+        lineArr.push(y);
 
+
+        vertex(x,y);
 
       }
+      endShape(CLOSE);
+
+      stroke(0);
+      strokeWeight(4);
+      for (let i = 0; i < lineArr.length; i+=2) {
+          line(radius*0.25*cos(i*8),radius*0.25*sin(i*12),
+            lineArr[i]*.89,lineArr[i+1]*.89);
+      }
+      lineArr = [];
+
       strokeWeight(6);
       fill(0);
-      ellipse(0,0, 100);
+     // ellipse(0,0, 100);
 
-      push();
-      rotate(270);
-      let fps = frameRate();
-      fill(255);
-      stroke(0);
-      text("fps: " + fps.toFixed(2), 0,0);
-      pop();
+      // push();
+      // rotate(270);
+      // let fps = frameRate();
+      // fill(255);
+      // stroke(0);
+      // text("fps: " + fps.toFixed(2), 0,0);
+      // pop();
     }
 }
 function touchStarted() {
@@ -314,7 +334,7 @@ $(document).ready(function(){
     $("#submit").click(function(){
         if(document.getElementById('balls').value!==""){
             drops = [];
-            numDrops = document.getElementById('balls').value;
+            numDrops = document.getElementById('balls').value/2;
             for(let i = 0; i < numDrops; i++)
               drops[i] = new Rain(document.getElementById('dropSize').value);
         }
