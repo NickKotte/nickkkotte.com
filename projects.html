@@ -12,6 +12,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -19,14 +20,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="./js/global.js"></script>
   </head>
+  <style>
+
+  </style>
   <body>
+
     <div id=header>
-      <div class="container"> <!-- -->
-        <div id="branding"><!-- -->
-          <h1><span class="highlight">Nick Kotte</span> Creations</h1> <!-- -->
+      <div class="container">
+        <div id="branding">
+          <a href="index.html"><img src="./images/logo.png" alt=""></a>
         </div>
 
-        <nav> <!-- -->
+        <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li class = "current"><a href="projects.html">Projects</a></li>
@@ -36,42 +41,51 @@
       </div>
     </div>
 
-    <div id="body">
-        <br>
-        <div id=projectsPanel>
-            <div class="projectBoxes">
-              <a id="website" href="./projects/website/projects_website[blog].html">
-                  <h3>nickkotte.com<br>[blog]</h3>
-                  <p>A quick look into the development of
-                  my website.</p>
-                  <p>=In development=</p>
-              </a>
-              <a id="webMV" href="./projects/MusicVisualizer/projects_webMV[interactive].html">
-                  <h3>Web-Based music visualizer<br>[interactive]</h3>
-                  <p>Try out this music visualizer.<br>Made using P5.js - a javascript library
-                      based off Processing </p>
-              </a>
-              <a id="nasa" href="./projects/nasaAPI/projects_NasaFacts.html">
-                  <h3>Nasa Facts Randomizer<br>[interactive]</h3>
-              </a>
-              <a id="LEDblog" href="./projects/LED/projects_LED[blog].html">
-                  <h3>Wifi controlled LEDs<br>[blog + video]</h3>
-                  <p>A detailed look into the process of making interactive LEDs that can play to your choice of music.</p>
-                  <p>=In development=</p>
-              </a>
-              <a id="LEDinteractive" href="./projects/LED/projects_LED[interactive].html">
-                  <h3>Wifi controlled LEDs<br>[interactive]</h3>
-                  <p>Try out the live interactive controls. Obviously, you won't be able to see
-                  the lights change unless you are in the same room... But I will!</p>
-                  <p>=In development=</p>
-              </a>
+
+    <section id=logo>
+        <img id=coyote src="./images/coyote.png" alt="rough logo design" title="Coyote Industries">
+    </section>
+
+    <div id="projects">
+        <div id="extention">
+            <br>
+            <div id=projectsPanel>
+                <div class="projectBoxes">
+                  <a id="website" href="./projects/website/projects_website[blog].html">
+                      <h3>nickkotte.com<br>[blog]</h3>
+                      <p>A quick look into the development of
+                      my website.</p>
+                      <p>=In development=</p>
+                  </a>
+                  <a id="webMV" href="./projects/MusicVisualizer/projects_webMV[interactive].html">
+                      <h3>Web-Based music visualizer<br>[interactive]</h3>
+                      <p>Try out this music visualizer.<br>Made using P5.js - a javascript library
+                          based off Processing </p>
+                  </a>
+                  <a id="nasa" href="./projects/nasaAPI/projects_NasaFacts.html">
+                      <h3>Nasa Facts Randomizer<br>[interactive]</h3>
+                  </a>
+                  <a id="LEDblog" href="./projects/LED/projects_LED[blog].html">
+                      <h3>Wifi controlled LEDs<br>[blog + video]</h3>
+                      <p>A detailed look into the process of making interactive LEDs that can play to your choice of music.</p>
+                      <p>=In development=</p>
+                  </a>
+                  <a id="LEDinteractive" href="./projects/LED/projects_LED[interactive].html">
+                      <h3>Wifi controlled LEDs<br>[interactive]</h3>
+                      <p>Try out the live interactive controls. Obviously, you won't be able to see
+                      the lights change unless you are in the same room... But I will!</p>
+                      <p>=In development=</p>
+                  </a>
+                </div>
+            </div>
+
+            <div id=footer>
+                <p>Nick Kotte Creations, Copyright &copy; 2019</p>
             </div>
         </div>
     </div>
+</div>
 
-    <div id=footer>
-        <p>Nick Kotte Creations, Copyright &copy; 2019</p>
-    </div>
 
   </body>
 </html>

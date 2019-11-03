@@ -4,79 +4,124 @@
     <meta charset ="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Nick kotte">
-    <meta name="description" content="Nick Kotte's test website">
-    <meta name="keywords" content="Nick, Nicklas, Kotte">
+    <meta name="description" content="Nick Kotte's Kotte visualizer music blog sunyavivat website">
+    <meta name="keywords" content="Nick, Nicklas, Kotte, visualizer, music, sunyavivat">
     <title>Nick Kotte | Welcome</title>
     <link rel="stylesheet" href = "./css/globalstylesheet.css">
     <link rel="stylesheet" href = "./css/homestylesheet.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="manifest" href="./images/site.webmanifest">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="./js/global.js"></script>
+    <style>
+
+    </style>
   </head>
   <body>
+
     <div id="header">
-      <div class="container"> <!-- -->
-        <div id="branding"><!-- -->
-          <h1><span class="highlight">Nick Kotte</span> Creations</h1> <!-- -->
+      <div class="container">
+        <div id="branding">
+          <a href="index.html"><img src="./images/logo.png" alt="Nick Kotte's Logo"></a>
         </div>
-        <nav> <!-- -->
+        <nav>
           <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
+              <li class = "current"><a href="index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
           </ul>
         </nav>
       </div>
     </div>
 
-    <section id=logo class="showcase">
-        <img src="./images/coyote.png" alt="rough logo design" title="Coyote Industries">
+
+    <section id=logo>
+        <div id=date><span id=display></span><span id=blinker></span> </div>
+        <!-- <img id=coyote src="./images/coyote.png" alt="rough logo design" title="Coyote Industries"> -->
     </section>
 
     <div id="body">
-        <section id="main">
+        <div id="extention">
           <div class="container">
-            <article id="main">
-              <div class="themed">
-                <h1>What is this place?</h1>
-                <p>Hello! My name is Nick Kotte. I developed this website as a
-                means of presenting my personal projects in an easy and accessible way.
-                The main goal is to make each one as interactable as possible with the only
-                limitations being the capabilities of the browser and the device in use.
-                Along with the projects, I will have written informational
-                blogs in order to explain the purpose it serves and how it was made.
-                </p>
-                <h1>This is me</h1>
-                <div id="pics">
-                    <img class=slideshow src="./images/me/1.PNG">
-                    <img class=slideshow src="./images/me/2.PNG">
-                    <img class=slideshow src="./images/me/3.PNG">
-                </div>
-                <img id=lastpic src="./images/me/4.PNG">
-              </div>
-            </article>
+              <div id="parent">
+                <article id="main">
+                  <div class="themed">
+                    <h1>What is this place?</h1>
+                    <p>
+                        Hello! My name is Nick Kotte. I developed this website
+                        as a means of presenting my projects in an easy and
+                        accessible way. The main goal is to make each one as
+                        interactable as possible with the only limitations being
+                        the browser and the device in use.
+                        Along with the projects, I will have written informational
+                        blogs to explain the purpose it serves and how it was made.
+                    </p>
+                    <p>
+                        On the other hand, I have projects that are not website
+                       compatible which, instead, will be available for download
+                       via the projects panel or my GitHub.
+                       So far, I have ported 2 small projects to serve as a proof
+                       of concept. More are in development and will release
+                       as soon as possible!</p>
+                  </div>
+                </article>
 
-            <aside id="side">
-              <div class="themed">
-                <h1>Other Information</h1>
-                <ul>
-                  <li><a href=""></a></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </aside>
+                <aside id="side">
+                  <div class="themed">
+                    <h1>Other Things</h1>
+                    <ul id=mediabox >
+                      <li>GitHub: <a href="https://github.com/NickKotte"><img id=mediapic src="./images/git.gif"></a></li>
+                      <li>Contact Me: <a><img id=mediapic src="./images/mail.gif"></a></li>
+                    </ul>
+                  </div>
+                </aside>
+
+
+                <aside id="submain">
+                  <div class="themed">
+                    <h1>About Me</h1>
+                    <p >
+                        I am a sophomore at Penn State University studying
+                        computer science. I strive to implement some sort of
+                        computer science aspect into my daily life whether that
+                        be through classes or my projects. Through my projects,
+                        I have taught and familiarized myself with Bash, Python,
+                        HTML/CSS, Javascript, and PHP. While through schooling, I have
+                        2 years of C++ experience and 1 year of Java experience.
+                        I have many ambitious goals I would like to accomplish by
+                        the end of this year!
+                    </p>
+                    <h1>This is me</h1>
+                    <div id="pics">
+                        <img class=slideshow src="./images/me/1.jpg">
+                        <img class=slideshow src="./images/me/2.jpg">
+                        <img class=slideshow src="./images/me/3.jpg">
+                    </div>
+                    <img id=lastpic src="./images/me/4.jpg">
+                  </div>
+                </aside>
+
+                <aside id="side">
+                  <div class="themed">
+                    <h1>What's with the coyotes?</h1>
+                    <p> A long, long time ago... one of my good friends gave me the nick-name "Nick Coyote".
+                        So, in the early developement of this website, I jokingly made a coyote logo as a placeholder
+                        for something else. Obviously, I never did so it now acts as a symbol of this website</p>
+                  </div>
+                </aside>
+
+            </div>
 
           </div>
-        </section>
 
-        <div id=footer>
-          <p>Nick Kotte Creations, Copyright &copy; 2019</p>
-        </div>
+            <div id=footer>
+              <p>Nick Kotte Creations, Copyright &copy; 2019</p>
+            </div>
     </div>
-
+</div>
 
 <!--
     <section id = "boxes">
