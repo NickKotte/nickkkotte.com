@@ -8,7 +8,8 @@ var angleDirection = false; //angledirection false = backwards, true = forwards
 var globalpercent=0; //used to display percentage of song loaded outside of function
 var fft; // new p5.fft()
 var spectrum = []; //current song buffer
-var drops = []; //number of particles in the background
+var drops = []; // particles in the background
+var lines = [];
 var previous = 0; //
 var amplitude; //
 var center = { //
@@ -39,8 +40,13 @@ function setup()
   rectMode(CENTER);
   textAlign(CENTER);
 
-  for(let i = 0; i < numDrops; i++)
+  for(let i = 0; i < numDrops; i++){
+
     drops[i] = new Rain(dropSize);
+  }
+
+  for(let i = 0; i < 7; i++)
+    lines[i] = new Line();
 
   center.x = windowWidth*0.5;
   center.y = windowHeight*0.5;
@@ -152,11 +158,13 @@ function draw()
       background(j);
 
 
-      var col = map(spectrum[140], 0,200, 0,255);
+      //var col = map(spectrum[140], 0,200, 0,255);
       for(let i = 0; i < drops.length; i++)
       {
-        drops[i].show(mWidth*0.7, col);
+        drops[i].show(mWidth*0.7, radius);
       }
+      for(let i = 0; i < lines.length; i++)
+        lines[i].show(radius);
 
       if(borderState){
           push();
@@ -168,8 +176,15 @@ function draw()
           pop();
       }
 
+      angleMode(RADIANS);
 
-      translate(center.x,center.y);
+      var a =  map(spectrum[140], 50,300,0.1,10);
+      var k = spectrum[1]* 0.5 * map(spectrum[140],100,400,0, 7);
+      let xshake = a * sin(k);
+
+      angleMode(DEGREES);
+
+      translate(center.x+xshake,center.y);
       rotate(90);
       stroke(254,95,82, 40);
       strokeWeight(30);
@@ -205,13 +220,13 @@ function draw()
         amplitude = spectrum[index] + windowWidth*0.01;
 
         if(index < 90){
-            radius= ((amplitude/125)*((spectrum[0]-40)/1.66));
-           //radius= (map(amplitude, 0,256, 0, 2)*map(spectrum[0],0, 256, -40, 130));
-            //strokeWeight(5);
+            //radius= ((amplitude/125)*((spectrum[0]-40)/1.66));
+           radius= (map(amplitude, 0,256, 0, 2)*map(spectrum[0],0, 256, -40, 130));
+            strokeWeight(4);
         }
         else {
-           radius= map(amplitude, 0,256, 45, 200);
-            //strokeWeight(4);
+           radius= map(amplitude, 0,256, 50, 200);
+            strokeWeight(3);
         }
         if (radius <= 50)
            radius=50;
@@ -223,21 +238,36 @@ function draw()
         lineArr.push(y);
 
 
-        vertex(x,y);
+        stroke(0);
+        line(radius*0.25*cos(i*8),radius*0.25*sin(i*12),x,y);
+        stroke(radius, radius);
+        //fill(radius,50);
+        if(borderState)
+          vertex(x,y);
 
       }
       endShape(CLOSE);
+      // push();
+      // rotate(270);
+      // fill(20, 255, 35);
+      // strokeWeight(2);
+      // text(k.toFixed(1),0,0);
+      // text(a.toFixed(1),0,15);
+      // text(xshake.toFixed(1),0,30);
+      // pop();
 
-      stroke(0);
-      strokeWeight(4);
-      for (let i = 0; i < lineArr.length; i+=2) {
-          line(radius*0.25*cos(i*8),radius*0.25*sin(i*12),
-            lineArr[i]*.89,lineArr[i+1]*.89);
-      }
-      lineArr = [];
+      //
+      // strokeWeight(4);
+      // for (let i = 0; i < lineArr.length; i+=2) {
+      //     line(radius*0.25*cos(i*8),radius*0.25*sin(i*12),
+      //       lineArr[i]*.89,lineArr[i+1]*.89);
+      // }
+      // lineArr = [];
+      //
+      // strokeWeight(6);
+      // fill(0);
 
-      strokeWeight(6);
-      fill(0);
+
      // ellipse(0,0, 100);
 
       // push();
@@ -277,8 +307,11 @@ function progress(percent)
 
 function mouseClicked()
 {
-  //var _time = map(mouseX, 0, width, 0, song.duration());
-  //song.jump(_time);
+  if(mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight){
+    var _time = map(mouseX, 0, width, 0, song.duration());
+    song.jump(_time);
+  }
+
 }
 
 function toggleSong(){
@@ -315,11 +348,10 @@ function keyPressed() {
 function focusCanvas(scrollTo){
     var cvs = document.getElementById("canvas");
     setTimeout(function(){
-        if(scrollTo)//if window should scroll to canvas
-        cvs.scrollIntoView(true);
-        window.scrollBy(0, 1);
-
         resizeCanvas(windowWidth, windowHeight);
+        if(scrollTo)//if window should scroll to canvas
+            cvs.scrollIntoView(true);
+        window.scrollBy(0, 1);
     }, 100);
 }
 

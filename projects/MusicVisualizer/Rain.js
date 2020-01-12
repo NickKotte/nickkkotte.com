@@ -40,7 +40,7 @@ class Rain {
       //     fill(amp,0,map(this.x,center.y,windowHeight, 250,0));
       // }
 
-      fill(col,0,120);
+      fill(col);
 
 
       // if(repelingForce > 100)
